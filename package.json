@@ -19,8 +19,7 @@
     "*.{css,scss,sass}": [
       "prettier --write",
       "stylelint '*/.{css,scss,sass}' --fix"
-    ],
-    "*.js": "eslint --cache --fix"
+    ]
   },
   "dependencies": {
     "eslint-config-prettier": "^8.3.0",
