@@ -5,7 +5,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint:staged": "lint-staged",
+    "lint:staged": "next lint",
     "lint:style": "stylelint '*/.{css,scss,sass}' --fix",
     "prepare": "husky install",
     "pre-commit": "lint-staged",
@@ -28,6 +28,7 @@
     ]
   },
   "dependencies": {
+    "eslint-config-prettier": "^8.3.0",
     "lint-staged": "^12.1.2",
     "next": "12.0.4",
     "react": "17.0.2",
