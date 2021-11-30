@@ -28,9 +28,6 @@ module.exports = {
     'plugin:jest/recommended',
   ],
   rules: {
-    'import/prefer-default-export': 'off',
-    'no-underscore-dangle': 'off',
-    'react/react-in-jsx-scope': 'off',
     // 'import/extensions': 'off',
     'import/extensions': [
       'error',
@@ -47,16 +44,11 @@ module.exports = {
     // 'prefer-const': 'off',
     'prettier/prettier': 'error',
     'no-console': 'error',
-    'arrow-body-style': 0,
     'react/jsx-filename-extension': [
       1,
       { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
     ],
-    'react/prop-types': 0,
-    'react/display-name': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
-    'jsx-a11y/no-static-element-interactions': 'off',
-    'jsx-a11y/click-events-have-key-events': 'off',
     'react/jsx-props-no-spreading': ['error', { custom: 'ignore' }],
     'import/no-cycle': [0, { ignoreExternal: true }],
     'import/namespace': [2, { allowComputed: true }],
@@ -81,7 +73,7 @@ module.exports = {
   overrides: [
     {
       // enable the rule specifically for TypeScript files
-      files: ['.ts', '.tsx'],
+      files: ['*.ts', '*.tsx'],
       rules: {
         // '@typescript-eslint/explicit-function-return-type': 'error',
         // '@typescript-eslint/explicit-module-boundary-types': [
