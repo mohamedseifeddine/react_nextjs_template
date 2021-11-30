@@ -1,6 +1,6 @@
 {
   "name": "template-next",
-  "description": "Full template for Next js 10 project which works with both js and ts",
+  "description": "Full template for Next js  project which works with both js and ts",
   "version": "0.1.0",
   "private": true,
   "keywords": [
@@ -18,14 +18,10 @@
     "husky",
     "lint-staged"
   ],
-  "author": {
-    "name": "Houssem Ghorbel",
-    "email": "houssemgho@gmail.com"
-  },
   "scripts": {
     "dev": "next dev",
     "lint:staged": "lint-staged",
-    "build": " pnpm run lint:staged && next build",
+    "build": " npm run lint:staged && next build",
     "start": "next start",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -62,7 +58,7 @@
     "next-redux-wrapper": "^6.0.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-intl": "^5.22.0",
+    "react-intl": "^5.18.0",
     "react-query": "^3.16.0",
     "react-redux": "^7.2.4",
     "redux": "^4.1.0",
