@@ -9,6 +9,7 @@ import * as locales from 'shared/content'
 import wrapper from 'utils/redux/store'
 import type { AppProps, NextWebVitalsMetric } from 'next/app'
 
+import 'antd/dist/antd.css'
 import 'shared/styles/globals.scss'
 
 const queryClient = new QueryClient({

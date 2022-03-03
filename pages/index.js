@@ -1,16 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Head from 'next/head'
 import styles from 'shared/styles/Home.module.scss'
 import { NEXT_PUBLIC_USER_NAME } from 'config'
-import { useDispatch } from 'react-redux'
+import { Row, Col, DatePicker, Card, Button, Modal, Timeline } from 'antd'
 
 export default function Home() {
-  const dispatch = useDispatch()
-  const user = { firstName: 'Seif', lastName: 'hamza' }
-  const addUser = () => ({
-    type: 'ADD_USER',
-    payload: user,
-  })
+  const [isModalVisible, setIsModalVisible] = useState(false)
+
+  const showModal = () => {
+    setIsModalVisible(true)
+  }
+
+  const handleOk = () => {
+    setIsModalVisible(false)
+  }
+
+  const handleCancel = () => {
+    setIsModalVisible(false)
+  }
 
   return (
     <div className={styles.container}>
@@ -20,56 +27,69 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome {NEXT_PUBLIC_USER_NAME} to{' '}
-          <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+        <Row gutter={24}>
+          <h1 className={styles.title}>
+            Welcome {NEXT_PUBLIC_USER_NAME} to{' '}
+            <a href="https://nextjs.org">Next.js + Ant design !</a>
+          </h1>
+        </Row>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-          <div className={styles.card}>
-            <h3>To test redux type your name &rarr;</h3>
-            {/* eslint-disable-next-line react/button-has-type */}
-            <button
-              type="text"
-              text="Save"
-              className="px-5 mt-3"
-              onClick={() => dispatch(addUser())}
+        <Row gutter={16}>
+          <Col span={6}>
+            <Card
+              title="Button"
+              extra={<a href="#">More</a>}
+              style={{ width: 300 }}
             >
-              Add
-            </button>
-          </div>
-        </div>
+              <Button type="primary" shape="round">
+                Simple Button
+              </Button>
+            </Card>
+          </Col>
+          <Col span={6}>
+            <Card
+              title="Modal"
+              extra={<a href="#">More</a>}
+              style={{ width: 300 }}
+            >
+              <Button type="primary" onClick={showModal}>
+                Open Modal
+              </Button>
+              <Modal
+                title="Basic Modal"
+                visible={isModalVisible}
+                onOk={handleOk}
+                onCancel={handleCancel}
+              >
+                <p>Some contents...</p>
+              </Modal>
+            </Card>
+          </Col>
+          <Col span={6}>
+            <Card
+              title="Date picker"
+              extra={<a href="#">More</a>}
+              style={{ width: 300 }}
+            >
+              <DatePicker />
+            </Card>
+          </Col>
+
+          <Col span={6}>
+            <Card
+              title="Time line"
+              extra={<a href="#">More</a>}
+              style={{ width: 300 }}
+            >
+              <Timeline>
+                <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
+                <Timeline.Item>
+                  Solve initial network problems 2015-09-01
+                </Timeline.Item>
+              </Timeline>
+            </Card>
+          </Col>
+        </Row>
       </main>
 
       <footer className={styles.footer}>
